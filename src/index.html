@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html style="-webkit-app-region: drag">
+<head>
+  <meta charset="UTF-8">
+  <title>-</title>
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://unpkg.com/98.css" />
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<style>
+  .window{
+    width: 300px; position:relative;
+    top: 50px;
+  }
+</style>
+</head>
+<body>
+
+
+<div id="container">
+<div class="window movable" id="duplicater">
+  <div class="title-bar">
+    <div class="title-bar-text">A Window With Stuff In It</div>
+    <div class="title-bar-controls">
+      <button  aria-label="Minimize"></button>
+      <button aria-label="Maximize"></button>
+      <button aria-label="Close" id="button" onclick="clone()">
+      </button>
+    </div>
+  </div>
+
+  <div class="window-body">
+    <p>You won 1000 DOL</p>
+    <br>
+    <button>Submit</button>
+  </div>
+
+</div>
+</div>
+
+
+<script>
+  var copied = [];
+  var i = 0;
+
+  function clone()
+  {
+
+    var cloneThis = document.getElementById('duplicater'),clone = cloneThis.cloneNode(true);
+    i += 1;
+    clone.id = "duplicater" + i;
+    copied.push(clone.id);
+    console.log(copied);
+
+    var x;
+    var container = document.getElementById("container");
+    for(x = 0; x < copied.length; x++){
+      container.innerHTML+='<div class="window movable" id="duplicater'+ i +'" style="margin-left:' + i*27 + 'px;position:abosolute;top:-' + i*88 + 'px;"><div class="title-bar">\n' +
+              '    <div class="title-bar-text">A Window With Stuff In It</div>\n' +
+              '    <div class="title-bar-controls">\n' +
+              '      <button  aria-label="Minimize"></button>\n' +
+              '      <button aria-label="Maximize"></button>\n' +
+              '      <button aria-label="Close" id="button" onclick="clone()">\n' +
+              '      </button>\n' +
+              '    </div>\n' +
+              '  </div>\n' +
+              '\n' +
+              '  <div class="window-body">\n' +
+              '    <p>You won '+ i*2000 +' DOL</p>\n' +
+              '    <br>\n' +
+              '    <button>Submit</button>\n' +
+              '  </div></div>';
+
+    }
+    copied.shift();
+  }
+
+</script>
+
+
+
+</body>
+</html>
