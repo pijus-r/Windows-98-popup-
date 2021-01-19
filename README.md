@@ -1,6 +1,8 @@
 # Windows 98 Ad Popup
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 
   ![alt text](https://github.com/pijus-r/Windows-98-popup-/blob/master/screen.png?raw=true)
+  
 
 ### Installation
 
